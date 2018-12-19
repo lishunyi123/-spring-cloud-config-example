@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: product-aggregate
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eurekaUserName}:${eurekaPassWord}@peer1:2021/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+
+feign:
+  hystrix:
+    enabled: true
+
+eurekaUserName: lian
+eurekaPassWord: lian

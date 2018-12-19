@@ -1,0 +1,31 @@
+spring:
+  rabbitmq:
+    host: 192.168.2.55
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: /
+    template:
+      retry:
+        enabled: true
+    listener:
+      simple:
+        retry:
+          enabled: false
+  application:
+    name: order-aggregate
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eurekaUserName}:${eurekaPassWord}@peer1:2021/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+
+eurekaUserName: lian
+eurekaPassWord: lian
