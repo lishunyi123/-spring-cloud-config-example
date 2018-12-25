@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: king
+    password: 123456
+    url: jdbc:mysql://192.168.2.55:10001/orderinfomation?characterEncoding=utf-8&useSSL=false
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eurekaUserName}:${eurekaPassWord}@192.168.2.55:2021/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+
+eurekaUserName: lian
+eurekaPassWord: lian
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
